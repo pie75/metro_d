@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://main.gd" type="Script" id=2]
+
+[node name="Main" type="Node"]
+script = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 32, 32 )
+texture = ExtResource( 1 )
+
+[node name="BackG" type="Node" parent="."]
+
+[node name="UrbanBG" type="ParallaxBackground" parent="BackG"]
+
+[node name="Stage" type="Node" parent="."]
+
+[node name="Room" type="Node" parent="Stage"]
+
+[node name="ForeG" type="Node" parent="."]
+
+[node name="Room0FG" type="ParallaxBackground" parent="ForeG"]
+
+[node name="UI" type="CanvasLayer" parent="."]
