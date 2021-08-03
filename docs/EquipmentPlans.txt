@@ -1,0 +1,23 @@
+Starting Equipment:
+Walk
+Run
+Jump
+WallJump
+Morphball
+Spider Ball
+Aim Lock
+Charge shot
+Varia suit
+
+Upgrades:
+Bombs: Emergency Demolition Authorized
+Missile: Emergency Heavy Ordinance Authorized
+"Varia": Emergency Security Bypass Granted
+	Disables turrets
+Super M: Magnetic Piercing
+	Fire missiles at full charged shot
+	Only attack capable of hurting aliens.
+-------
+Power B: Emergency Heavy Demolition Authorized
+Space J: Atmospherically Suitable Fuel
+Gravity: Emergency Surface Warping Authorized
