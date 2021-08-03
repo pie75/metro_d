@@ -27,3 +27,12 @@ func get_mask(position: Vector2):
 		if dict_x.has(y):
 			current_mask =  dict_x[y]
 	return current_mask
+
+func get_rows():
+	return masks.size
+
+func get_columns(row_id):
+	var row = 0
+	if masks.has(row_id):
+		row = masks[row_id]
+	return row
