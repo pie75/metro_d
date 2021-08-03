@@ -1,7 +1,8 @@
 extends TileSet
 tool
 
-# Declare member variables here. Examples:
+onready var slope_mask = SlopeMask
+
 const EMPTY = -1
 const BASIC_SOLID = 1
 const BASIC_SLOPE = 2
@@ -21,15 +22,17 @@ func _forward_subtile_selection(id, bitmask, tilemap, tile_location):
 	
 	match id:
 		BASIC_SLOPE:
-			match bitmap:
-				24:
-					
+			for key_x in slope_mask.get_rows():
+				for key_y in slope_mask.get_columns(key_x):
+					var current_vector = Vector2(key_x, key_y)
+					var current_mask = slope_mask.get_mask(current_vector)
+					if get_tile_types(x, y, tilemap, current_mask):
+						for tile in subtiles:
+							print("{custom_vector} is being used.".format({"custom_vector":current_vector}))
+							tile.coord = current_vector
+							return tile.coord
 
 func get_subtiles(autotile_id):
-	# Helper function for iterating over subtiles
-	# Return an array of dictionaries with subtile texture co-ords,
-	# and subtile bitmask
-	# n.b. I did not account for spacing, I leave that to you
 	var return_values = []
 	var size = autotile_get_size(autotile_id)
 	var region = tile_get_region(autotile_id)
@@ -46,3 +49,16 @@ func get_subtiles(autotile_id):
 					"mask": mask
 				})
 	return return_values
+
+func get_tile_types(x, y, tilemap, extra_mask=null):
+	var array_output = []
+	for column in 3:
+		for row in 3:
+			array_output.append(tilemap.get_cellv(Vector2(x, y) + Vector2(row-1, column-1)))
+	for n in range(extra_mask.size()):
+		if extra_mask[n] == 3:
+			if array_output[n] == 1 or array_output[n] == 2:
+				array_output[n] = 3
+	if extra_mask == array_output:
+		return true
+	return false
