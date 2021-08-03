@@ -2,37 +2,49 @@ class_name TileMask
 extends Resource
 tool
 
-var masks #= {
+var MASKS #= {
+# Format is specific to each tileset. Consult them for explicit data.
 # Row #0  -  Second Value is Columns
 #	0: {
-#		0: [
-#			-1, -1, -1,
-#			-1,  2,  1,
-#			-1,  1, -1
-#		],
+#		0: {
+#			0: [
+#				-1, -1, -1,
+#				-1, -1, -1,
+#				-1, -1, -1
+#			]
+#		}
 #	}
 #}
 
 # Use to obtain data
-func get_mask(position: Vector2):
-	var x = position.x
-	var y = position.y
-	var current_mask = [
-		-1, -1, -1,
-		-1, -1, -1,
-		-1, -1, -1
-	]
-	if masks.has(x):
-		var dict_x = masks[x]
-		if dict_x.has(y):
-			current_mask =  dict_x[y]
-	return current_mask
+func get_mask(row:int, column:int, priority:int):
+	var current_mask =  MASKS[row][column][priority]
+	match current_mask:
+		null:
+			current_mask = [
+				-2, -2, -2,
+				-2, -2, -2,
+				-2, -2, -2
+			]
+			continue
+		_:
+			return current_mask
 
 func get_rows():
-	return masks.size
+	return MASKS.size()
 
-func get_columns(row_id):
-	var row = 0
-	if masks.has(row_id):
-		row = masks[row_id]
-	return row
+func get_columns(row_id:int):
+	var row = MASKS[row_id].size()
+	match row:
+		null:
+			return 0
+		_:
+			return row
+
+func get_mask_number(row_id:int, column_id:int):
+	var mask = MASKS[row_id][column_id].size()
+	match mask:
+		null:
+			return 0
+		_:
+			return mask
