@@ -98,5 +98,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Button" to="KinematicBody2D" method="_on_Button_pressed"]
 [connection signal="pressed" from="Button" to="KinematicBody2D4" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="KinematicBody2D" method="_on_Button_pressed"]
