@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://source/tilesets/ts_basic.tres" type="TileSet" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://source/entities/enemies/zoomer.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.78486
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.8023
+
+[node name="Room1" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 96.7794, 138.062 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 6, 6 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -983056, 1, 1, -983055, 1, 196610, -983054, 1, 196610, -983053, 1, 196610, -983052, 1, 196610, -983051, 1, 196610, -983050, 1, 196610, -983049, 1, 196610, -983048, 1, 196610, -983047, 1, 196610, -983046, 1, 196610, -983045, 1, 196610, -983044, 1, 196610, -983043, 1, 196610, -983042, 1, 196610, -983041, 1, 196610, -1048576, 1, 196610, -1048575, 1, 196610, -1048574, 1, 196610, -1048573, 1, 196610, -1048572, 1, 196610, -1048571, 1, 196610, -1048570, 1, 196610, -1048569, 1, 196610, -1048568, 1, 196610, -1048567, 1, 196610, -1048566, 1, 196610, -1048565, 1, 196610, -1048564, 1, 196610, -1048563, 1, 196610, -1048562, 1, 196610, -1048561, 1, 196610, -1048560, 1, 3, -917520, 1, 65536, -983024, 1, 65536, -851984, 1, 65536, -851972, 2, 3, -851971, 2, 131076, -917488, 1, 65536, -786448, 1, 65536, -786437, 2, 131072, -786436, 1, 65541, -786435, 1, 65542, -786434, 2, 131073, -851952, 1, 65536, -720912, 1, 65536, -720901, 2, 196608, -720900, 1, 131077, -720899, 1, 131078, -720898, 2, 196609, -786416, 1, 65536, -655376, 1, 65536, -655364, 2, 196611, -655363, 2, 65540, -720880, 1, 65536, -589840, 1, 65536, -655344, 1, 65536, -524304, 1, 65536, -524294, 1, 1, -524293, 1, 196610, -524292, 1, 196610, -524291, 1, 196610, -524290, 1, 3, -589808, 1, 65536, -458768, 1, 65536, -458758, 1, 65536, -458754, 1, 65536, -524272, 1, 65536, -393232, 1, 65536, -393222, 1, 65536, -393220, 1, 1, -393219, 1, 196610, -393218, 1, 131075, -458736, 1, 65536, -327696, 1, 65536, -327686, 1, 65536, -327684, 1, 65536, -393211, 1, 0, -393200, 1, 65536, -262160, 1, 65536, -262154, 1, 196609, -262153, 1, 196610, -262152, 1, 196610, -262151, 1, 2, -262150, 1, 131075, -262148, 1, 65536, -327675, 1, 65536, -327664, 1, 65536, -196624, 1, 65536, -196615, 1, 65536, -196612, 1, 65536, -262139, 1, 65536, -262128, 1, 65536, -131088, 1, 65536, -131079, 1, 131073, -131078, 1, 196610, -131077, 1, 196610, -131076, 1, 131075, -196603, 1, 131072, -196592, 1, 65536, -65552, 1, 65536, -131056, 1, 65536, -16, 1, 65536, -65527, 2, 131072, -65526, 1, 10, -65525, 1, 10, -65524, 1, 10, -65523, 2, 131073, -65520, 1, 65536, 65520, 1, 131073, 65521, 1, 196610, 65522, 1, 196610, 65523, 1, 196610, 65524, 1, 196610, 65525, 1, 196610, 65526, 1, 196610, 65527, 1, 196610, 65528, 1, 196610, 65529, 1, 196610, 65530, 1, 196610, 65531, 1, 196610, 65532, 1, 196610, 65533, 1, 196610, 65534, 1, 196610, 65535, 1, 196610, 0, 1, 196610, 1, 1, 196610, 2, 1, 196610, 3, 1, 196610, 4, 1, 196610, 5, 1, 196610, 6, 1, 196610, 7, 1, 196610, 8, 1, 196610, 9, 1, 196613, 10, 1, 196617, 11, 1, 196617, 12, 1, 196617, 13, 1, 196614, 14, 1, 196610, 15, 1, 196610, 16, 1, 131075 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+position = Vector2( 129.789, 99.2812 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+scale = Vector2( 0.0872575, 0.0872575 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+shape = SubResource( 1 )
+
+[node name="KinematicBody2D2" type="KinematicBody2D" parent="."]
+position = Vector2( 78.6597, 54.2368 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D2"]
+scale = Vector2( 0.0872575, 0.0872575 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="KinematicBody2D3" type="KinematicBody2D" parent="."]
+position = Vector2( 39.6327, 104.938 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+dir_counter_clockwise = true
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D3"]
+scale = Vector2( 0.0872575, 0.0872575 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D3"]
+shape = SubResource( 1 )
+
+[node name="KinematicBody2D4" type="KinematicBody2D" parent="."]
+position = Vector2( 123.639, 135.217 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+can_not_climb_walls = true
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D4"]
+scale = Vector2( 0.0872575, 0.0872575 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D4"]
+shape = SubResource( 1 )
+
+[node name="KinematicBody2D5" type="KinematicBody2D" parent="."]
+position = Vector2( 75.6544, 80.9677 )
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D5"]
+scale = Vector2( 0.0872575, 0.0872575 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D5"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 123.0
+margin_top = 61.0
+margin_right = 184.0
+margin_bottom = 81.0
+text = "Deal 25"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="KinematicBody2D" method="_on_Button_pressed"]
+[connection signal="pressed" from="Button" to="KinematicBody2D4" method="_on_Button_pressed"]
