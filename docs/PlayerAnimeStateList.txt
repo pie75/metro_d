@@ -1,0 +1,32 @@
+Facing	Turn	Left
+		Right
+Right	Torso	Default	Turn	North
+				NorthEast
+			Idle	North
+			Fire	North
+		Crouch	Idle	East
+			Fire	East
+		Running	Idle	East
+			Fire	East
+	Legs	Default	Turn
+			Idle
+		Crouch	ToCrouch
+			Turn
+			Idle
+		Running	ToRun
+			Running
+			Stop
+		Jumping	Rise
+			Apex
+			Fall
+	Mono	toSomersault
+		Somersault
+		WallJump
+		toBall
+		RuntoBall
+Ball	
+
+change_texture( state :int, upper :bool)
+default = 0
+ball	= 0
+mono	= 0
